@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+    http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+<kcfgfile name=""/>
+
+    <group name="General">
+        <entry name="indicatorStyle" type="Enum">
+            <label>Indicator style</label>
+            <choices>
+                <choice name="Pills"/>
+                <choice name="Numbers"/>
+                <choice name="Labels"/>
+            </choices>
+            <default>0</default>
+        </entry>
+    </group>
+
+    <group name="Pills">
+        <entry name="pillsDotSize" type="Int"><label>Dot size</label><default>3</default></entry>
+        <entry name="pillsLineLength" type="Int"><label>Active line length</label><default>5</default></entry>
+        <entry name="pillsGap" type="Int"><label>Gap between indicators</label><default>2</default></entry>
+        <entry name="pillsMargin" type="Int"><label>Panel margin</label><default>2</default></entry>
+        <entry name="pillsActiveColor" type="String"><default>#FFFFFF</default></entry>
+        <entry name="pillsInactiveColor" type="String"><default>#FFFFFF</default></entry>
+        <entry name="pillsActiveOpacity" type="Int"><label>Active opacity</label><default>100</default></entry>
+        <entry name="pillsInactiveOpacity" type="Int"><label>Inactive opacity</label><default>40</default></entry>
+    </group>
+
+    <group name="Numbers">
+        <entry name="numBoxWidth" type="Int"><label>Box width</label><default>16</default></entry>
+        <entry name="numBoxHeight" type="Int"><label>Box height</label><default>12</default></entry>
+        <entry name="numFontSize" type="Int"><label>Font size (0 = auto)</label><default>0</default></entry>
+        <entry name="numFontBold" type="Bool"><label>Bold</label><default>false</default></entry>
+        <entry name="numGap" type="Int"><label>Gap between boxes</label><default>2</default></entry>
+        <entry name="numMargin" type="Int"><label>Panel margin</label><default>2</default></entry>
+        <entry name="numActiveColor" type="String"><label>Active text color</label><default>#000000</default></entry>
+        <entry name="numInactiveColor" type="String"><label>Inactive text color</label><default>#FFFFFF</default></entry>
+        <entry name="numActiveBgColor" type="String"><label>Active background</label><default>#FFFFFF</default></entry>
+        <entry name="numInactiveBgColor" type="String"><label>Inactive background</label><default>#00000000</default></entry>
+        <entry name="numShowBg" type="Bool"><label>Show background</label><default>true</default></entry>
+        <entry name="numActiveOpacity" type="Int"><label>Active opacity</label><default>100</default></entry>
+        <entry name="numInactiveOpacity" type="Int"><label>Inactive opacity</label><default>60</default></entry>
+        <entry name="numShowBorder" type="Bool"><label>Show border</label><default>true</default></entry>
+        <entry name="numBorderColor" type="String"><label>Border color</label><default>#FFFFFF</default></entry>
+        <entry name="numBorderThickness" type="Int"><label>Border thickness</label><default>1</default></entry>
+        <entry name="numBoxRadius" type="Int"><label>Corner radius</label><default>25</default></entry>
+    </group>
+
+    <group name="Labels">
+        <entry name="lblBoxWidth" type="Int"><label>Box minimum width</label><default>24</default></entry>
+        <entry name="lblBoxHeight" type="Int"><label>Box height</label><default>12</default></entry>
+        <entry name="lblFontSize" type="Int"><label>Font size (0 = auto)</label><default>0</default></entry>
+        <entry name="lblFontBold" type="Bool"><label>Bold</label><default>false</default></entry>
+        <entry name="lblGap" type="Int"><label>Gap between boxes</label><default>2</default></entry>
+        <entry name="lblMargin" type="Int"><label>Panel margin</label><default>2</default></entry>
+        <entry name="lblActiveColor" type="String"><label>Active text color</label><default>#000000</default></entry>
+        <entry name="lblInactiveColor" type="String"><label>Inactive text color</label><default>#FFFFFF</default></entry>
+        <entry name="lblActiveBgColor" type="String"><label>Active background</label><default>#FFFFFF</default></entry>
+        <entry name="lblInactiveBgColor" type="String"><label>Inactive background</label><default>#00000000</default></entry>
+        <entry name="lblActiveOpacity" type="Int"><label>Active opacity</label><default>100</default></entry>
+        <entry name="lblInactiveOpacity" type="Int"><label>Inactive opacity</label><default>60</default></entry>
+        <entry name="lblShowBorder" type="Bool"><label>Show border</label><default>true</default></entry>
+        <entry name="lblBorderColor" type="String"><label>Border color</label><default>#FFFFFF</default></entry>
+        <entry name="lblBorderThickness" type="Int"><label>Border thickness</label><default>1</default></entry>
+        <entry name="lblBoxRadius" type="Int"><label>Corner radius</label><default>25</default></entry>
+    </group>
+
+</kcfg>

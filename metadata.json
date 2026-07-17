@@ -1,0 +1,29 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "michaelqhdez@gmail.com",
+                "Name": "MikeDevQH"
+            }
+        ],
+        "Category": "Windows & Tasks",
+        "Description": "A highly configurable virtual desktop pager for Plasma 6 with three visual styles: Pills (dots with active pill connector), Numbers (numbered boxes with customizable backgrounds, borders and fonts), and Labels (editable desktop names with colored backgrounds). Each style supports full color customization, opacity, spacing, margins, corner radius, and more.",
+        "Description[es]": "Paginador de escritorios virtuales altamente configurable para Plasma 6 con tres estilos visuales: Pills (puntos con conector de píldora activa), Numbers (cajas numeradas con fondos, bordes y tipografía personalizables), y Labels (nombres de escritorio editables con fondos coloreados). Cada estilo ofrece personalización completa de colores, opacidad, espaciado, márgenes, radio de esquinas y más.",
+        "Description[fr]": "Pagineur de bureaux virtuels hautement configurable pour Plasma 6 avec trois styles visuels : Pills (points avec connecteur de pilule active), Numbers (boîtes numérotées avec arrière-plans, bordures et polices personnalisables), et Labels (noms de bureau modifiables avec arrière-plans colorés). Chaque style offre une personnalisation complète des couleurs, de l'opacité, de l'espacement, des marges, du rayon des coins et plus.",
+        "Description[de]": "Ein hochkonfigurierbarer Pager für virtuelle Arbeitsflächen für Plasma 6 mit drei visuellen Stilen: Pills (Punkte mit aktivem Pillenverbinder), Numbers (nummerierte Boxen mit anpassbaren Hintergründen, Rahmen und Schriftarten) und Labels (bearbeitbare Arbeitsflächennamen mit farbigen Hintergründen). Jeder Stil bietet vollständige Anpassung von Farben, Deckkraft, Abständen, Rändern, Eckenradius und mehr.",
+        "Icon": "virtual-desktops",
+        "Id": "com.mike.desktop",
+        "License": "GPLv3",
+        "Name": "Mike Desktop",
+        "Name[es]": "Mike Desktop",
+        "Name[fr]": "Mike Desktop",
+        "Name[de]": "Mike Desktop",
+        "Version": "1.0",
+        "Website": ""
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-Provides": [
+        "org.kde.plasma.virtualdesktops"
+    ]
+}
