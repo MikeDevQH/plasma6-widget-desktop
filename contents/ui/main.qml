@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import org.kde.taskmanager
 import org.kde.plasma.plasmoid
+import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.workspace.dbus as DBus
 import org.kde.kirigami as Kirigami
 
@@ -22,7 +23,10 @@ PlasmoidItem {
         function onDesktopIdsChanged() { refresh() }
     }
 
-    Component.onCompleted: refresh()
+    Component.onCompleted: {
+        plasmoid.contextualActions = [addDesktopAction, removeDesktopAction]
+        refresh()
+    }
 
     function refresh() {
         var current = deskInfo.currentDesktop
@@ -34,7 +38,7 @@ PlasmoidItem {
     }
 
     function switchTo(index) {
-        if (index === currentIndex || index >= numberOfDesktops) return
+        if (index === currentIndex || index < 0 || index >= numberOfDesktops) return
         DBus.SessionBus.asyncCall({
             service: "org.kde.KWin",
             path: "/KWin",
@@ -42,6 +46,44 @@ PlasmoidItem {
             member: "setCurrentDesktop",
             arguments: [new DBus.int32(index + 1)]
         })
+    }
+
+    function addDesktop() {
+        DBus.SessionBus.asyncCall({
+            service: "org.kde.KWin",
+            path: "/VirtualDesktopManager",
+            iface: "org.kde.KWin.VirtualDesktopManager",
+            member: "createDesktop",
+            arguments: [new DBus.uint32(numberOfDesktops), new DBus.string("")]
+        })
+    }
+
+    function removeDesktop() {
+        if (numberOfDesktops <= 1) return
+        var id = deskInfo.desktopIds[numberOfDesktops - 1]
+        if (!id) return
+        DBus.SessionBus.asyncCall({
+            service: "org.kde.KWin",
+            path: "/VirtualDesktopManager",
+            iface: "org.kde.KWin.VirtualDesktopManager",
+            member: "removeDesktop",
+            arguments: [new DBus.string(id)]
+        })
+    }
+
+    PlasmaCore.Action {
+        id: addDesktopAction
+        text: i18n("Add Desktop")
+        icon.name: "list-add"
+        onTriggered: addDesktop()
+    }
+
+    PlasmaCore.Action {
+        id: removeDesktopAction
+        text: i18n("Remove Desktop")
+        icon.name: "list-remove"
+        enabled: numberOfDesktops > 1
+        onTriggered: removeDesktop()
     }
 
     compactRepresentation: Item {
@@ -187,6 +229,14 @@ PlasmoidItem {
                         anchors.margins: rep.isPills ? -Kirigami.Units.smallSpacing : 0
                         cursorShape: Qt.PointingHandCursor
                         onClicked: root.switchTo(model.index)
+                        onWheel: {
+                            var n = root.numberOfDesktops
+                            if (n <= 1) return
+                            if (wheel.angleDelta.y > 0)
+                                root.switchTo((root.currentIndex - 1 + n) % n)
+                            else if (wheel.angleDelta.y < 0)
+                                root.switchTo((root.currentIndex + 1) % n)
+                        }
                     }
                 }
             }
@@ -319,6 +369,14 @@ PlasmoidItem {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: root.switchTo(model.index)
+                        onWheel: {
+                            var n = root.numberOfDesktops
+                            if (n <= 1) return
+                            if (wheel.angleDelta.y > 0)
+                                root.switchTo((root.currentIndex - 1 + n) % n)
+                            else if (wheel.angleDelta.y < 0)
+                                root.switchTo((root.currentIndex + 1) % n)
+                        }
                     }
                 }
             }
