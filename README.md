@@ -12,12 +12,15 @@ A highly configurable and visually stunning virtual desktop pager exclusively de
   * **Pills:** A minimalist approach featuring dots with a sliding, expanding "active pill" indicator.
   * **Numbers:** Fixed-size numbered boxes with fully customizable backgrounds, borders, and typography.
   * **Labels:** Dynamic boxes that display the actual names of your virtual desktops.
-* **Deep Customization Engine:** Fine-tune almost every aspect of the widget:
+* **Scroll Desktop Switching:** Roll the mouse wheel over the pager to quickly move between virtual desktops. Cyclic wrapping can be enabled for seamless navigation from the last desktop back to the first.
+* **Window Activity Indicators:** Desktops that contain open windows are visually highlighted, so you can tell at a glance which workspaces are in use without leaving the pager.
+* **System Color Integration:** Optionally inherit your Plasma theme's accent and text colors for a fully native look. When enabled, the manually configured colors are applied.
+* **Deep Customization Engine:** You can fine-tune almost every aspect of the widget:
   * Adjust colors for active and inactive states (supports alpha/transparency).
   * Control active/inactive opacity levels independently via sliders.
   * Modify gaps, margins, corner radius, and border thickness.
   * Change font sizes and toggle bold typography.
-* **Live Desktop Renaming:** Rename your KDE virtual desktops directly from the widget's Kirigami settings panel. No need to open external system settings!
+* **Live Desktop Renaming:** Rename your KDE virtual desktops directly from the widget's Kirigami settings panel. No need to open the external system settings!
 * **Fluid Animations:** Enjoy buttery-smooth sliding and fading transitions (built with OutCubic easing) when switching between desktops.
 * **Native Plasma 6 Integration:** Built with modern QML and Kirigami, ensuring perfect geometry calculations, seamless panel integration (both compact and full representations), and asynchronous DBus calls to `org.kde.KWin` for zero-lag performance.
 
