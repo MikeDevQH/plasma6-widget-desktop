@@ -15,6 +15,26 @@
             </choices>
             <default>0</default>
         </entry>
+        <entry name="enableScroll" type="Bool">
+            <label>Enable scroll to change desktop</label>
+            <default>true</default>
+        </entry>
+        <entry name="scrollCyclic" type="Bool">
+            <label>Cyclic scrolling</label>
+            <default>false</default>
+        </entry>
+        <entry name="useSystemColors" type="Bool">
+            <label>Use system colors</label>
+            <default>true</default>
+        </entry>
+        <entry name="showWindowIndicator" type="Bool">
+            <label>Show window indicator</label>
+            <default>true</default>
+        </entry>
+        <entry name="windowIndicatorColor" type="String">
+            <label>Window indicator color</label>
+            <default>#FFFFFF</default>
+        </entry>
     </group>
 
     <group name="Pills">

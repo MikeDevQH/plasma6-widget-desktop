@@ -12,6 +12,12 @@ KCM.SimpleKCM {
 
     property alias cfg_indicatorStyle: indicatorStyle.currentIndex
 
+    property alias cfg_enableScroll: enableScroll.checked
+    property alias cfg_scrollCyclic: scrollCyclic.checked
+    property alias cfg_useSystemColors: useSystemColors.checked
+    property alias cfg_showWindowIndicator: showWindowIndicator.checked
+    property string cfg_windowIndicatorColor: "#FFFFFF"
+
     property alias cfg_pillsDotSize: pillsDotSize.value
     property alias cfg_pillsLineLength: pillsLineLength.value
     property alias cfg_pillsGap: pillsGap.value
@@ -92,6 +98,42 @@ KCM.SimpleKCM {
             ]
         }
 
+        QtControls.CheckBox {
+            id: enableScroll
+            Kirigami.FormData.label: i18n("Scroll:")
+            text: i18n("Change desktops on scroll")
+        }
+
+        QtControls.CheckBox {
+            id: scrollCyclic
+            Kirigami.FormData.label: i18n("Cyclic:")
+            text: i18n("Wrap around on scroll")
+            enabled: enableScroll.checked
+        }
+
+        QtControls.CheckBox {
+            id: useSystemColors
+            Kirigami.FormData.label: i18n("Colors:")
+            text: i18n("Use system colors")
+        }
+
+        QtControls.CheckBox {
+            id: showWindowIndicator
+            Kirigami.FormData.label: i18n("Windows:")
+            text: i18n("Show indicator on desktops with windows")
+        }
+
+        QtLayouts.RowLayout {
+            Kirigami.FormData.label: i18n("Indicator color:")
+            KQControls.ColorButton {
+                id: windowIndicatorColor
+                color: cfg_windowIndicatorColor
+                onColorChanged: cfg_windowIndicatorColor = color.toString()
+                showAlphaChannel: false
+                enabled: !useSystemColors.checked && showWindowIndicator.checked
+            }
+        }
+
         // ═══════════════════════════════════════
         //  PILLS
         // ═══════════════════════════════════════
@@ -130,6 +172,7 @@ KCM.SimpleKCM {
                 color: cfg_pillsActiveColor
                 onColorChanged: cfg_pillsActiveColor = color.toString()
                 showAlphaChannel: false
+                enabled: !useSystemColors.checked
             }
         }
         QtLayouts.RowLayout {
@@ -140,6 +183,7 @@ KCM.SimpleKCM {
                 color: cfg_pillsInactiveColor
                 onColorChanged: cfg_pillsInactiveColor = color.toString()
                 showAlphaChannel: false
+                enabled: !useSystemColors.checked
             }
         }
 
@@ -218,7 +262,7 @@ KCM.SimpleKCM {
                 color: cfg_numActiveBgColor
                 onColorChanged: cfg_numActiveBgColor = color.toString()
                 showAlphaChannel: true
-                enabled: numShowBg.checked
+                enabled: numShowBg.checked && !useSystemColors.checked
             }
         }
         QtLayouts.RowLayout {
@@ -229,7 +273,7 @@ KCM.SimpleKCM {
                 color: cfg_numInactiveBgColor
                 onColorChanged: cfg_numInactiveBgColor = color.toString()
                 showAlphaChannel: true
-                enabled: numShowBg.checked
+                enabled: numShowBg.checked && !useSystemColors.checked
             }
         }
 
@@ -241,6 +285,7 @@ KCM.SimpleKCM {
                 color: cfg_numActiveColor
                 onColorChanged: cfg_numActiveColor = color.toString()
                 showAlphaChannel: false
+                enabled: !useSystemColors.checked
             }
         }
         QtLayouts.RowLayout {
@@ -251,6 +296,7 @@ KCM.SimpleKCM {
                 color: cfg_numInactiveColor
                 onColorChanged: cfg_numInactiveColor = color.toString()
                 showAlphaChannel: false
+                enabled: !useSystemColors.checked
             }
         }
 
@@ -289,7 +335,7 @@ KCM.SimpleKCM {
                 color: cfg_numBorderColor
                 onColorChanged: cfg_numBorderColor = color.toString()
                 showAlphaChannel: false
-                enabled: numShowBorder.checked
+                enabled: numShowBorder.checked && !useSystemColors.checked
             }
         }
         QtControls.SpinBox {
@@ -352,6 +398,7 @@ KCM.SimpleKCM {
                 color: cfg_lblActiveBgColor
                 onColorChanged: cfg_lblActiveBgColor = color.toString()
                 showAlphaChannel: true
+                enabled: !useSystemColors.checked
             }
         }
         QtLayouts.RowLayout {
@@ -362,6 +409,7 @@ KCM.SimpleKCM {
                 color: cfg_lblInactiveBgColor
                 onColorChanged: cfg_lblInactiveBgColor = color.toString()
                 showAlphaChannel: true
+                enabled: !useSystemColors.checked
             }
         }
 
@@ -373,6 +421,7 @@ KCM.SimpleKCM {
                 color: cfg_lblActiveColor
                 onColorChanged: cfg_lblActiveColor = color.toString()
                 showAlphaChannel: false
+                enabled: !useSystemColors.checked
             }
         }
         QtLayouts.RowLayout {
@@ -383,6 +432,7 @@ KCM.SimpleKCM {
                 color: cfg_lblInactiveColor
                 onColorChanged: cfg_lblInactiveColor = color.toString()
                 showAlphaChannel: false
+                enabled: !useSystemColors.checked
             }
         }
 
@@ -421,7 +471,7 @@ KCM.SimpleKCM {
                 color: cfg_lblBorderColor
                 onColorChanged: cfg_lblBorderColor = color.toString()
                 showAlphaChannel: false
-                enabled: lblShowBorder.checked
+                enabled: lblShowBorder.checked && !useSystemColors.checked
             }
         }
         QtControls.SpinBox {
@@ -488,6 +538,11 @@ KCM.SimpleKCM {
                 icon.name: "edit-undo"
                 onClicked: {
                     indicatorStyle.currentIndex = 0
+                    enableScroll.checked = true
+                    scrollCyclic.checked = false
+                    useSystemColors.checked = true
+                    showWindowIndicator.checked = true
+                    windowIndicatorColor.color = "#FFFFFF"
                     pillsDotSize.value = 3
                     pillsLineLength.value = 5
                     pillsGap.value = 2
