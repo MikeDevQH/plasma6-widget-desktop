@@ -13,6 +13,8 @@ A highly configurable and visually stunning virtual desktop pager exclusively de
   * **Numbers:** Fixed-size numbered boxes with fully customizable backgrounds, borders, and typography.
   * **Labels:** Dynamic boxes that display the actual names of your virtual desktops.
 * **Scroll Desktop Switching:** Roll the mouse wheel over the pager to quickly move between virtual desktops. Cyclic wrapping can be enabled for seamless navigation from the last desktop back to the first.
+* **Quick Desktop Management:** Add or remove virtual desktops on the fly directly from the widget's right-click context menu.
+* **Smart Hiding:** The widget automatically hides itself from the panel when only a single virtual desktop is active, saving screen space.
 * **Window Activity Indicators:** Desktops that contain open windows are visually highlighted, so you can tell at a glance which workspaces are in use without leaving the pager.
 * **System Color Integration:** Optionally inherit your Plasma theme's accent and text colors for a fully native look. When enabled, the manually configured colors are applied.
 * **Deep Customization Engine:** You can fine-tune almost every aspect of the widget:
